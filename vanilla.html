@@ -10,24 +10,36 @@
     const root = document.getElementById("root");
 
     function Container() {
-      const [minutes, setMinutes] = React.useState();
+      const [minutes, setMinutes] = React.useState(0);
       const onChange = event => {
-        setMinutes(event.target.value);
+        setMinutes(event.target.value); //이벤트를 발생시키는것, 하나
+      };
+      const reset = () => {
+        setMinutes(0);
       };
       return (
         <div>
           <h1>Converter</h1>
-          <label htmlFor="minutes">Minutes</label>
-          <input
-            value={minutes}
-            id="minutes"
-            placeholder="Minutes"
-            type="number"
-            onChange={onChange}
-          />
-          <h4>Want to convert {minutes}</h4>
-          <label htmlFor="hours">Hours</label>
-          <input id="hours" placeholder="Hours" type="number" />
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange} //발생한 이벤트를 보여주는 두개가 필요
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={Math.round(minutes / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
         </div>
       );
     }
@@ -57,4 +69,8 @@ React JS는 업데이트 해야 하는 HTML을 업데이트 할 수 있음
 브라우저 작동원리와 연관있음. 니꼬쌤이 말하는 “렌더”가, 
 렌더트리를 말씀하시는 것 같은데 프엔은 이 렌더트리 단계를 
 얼마나 최적화하는가가 중요하다더라구요! 
+
+JSX
+class는 className
+for은 htmlFor
 -->
