@@ -8,20 +8,17 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function count() {
-      counter = counter + 1;
-      reRender();
+
+    function Container() {
+      const [a, b] = React.useState(0); //초기 값과 함수
+      
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={count}>Click me</button>
+        </div>
+      );
     }
-    function reRender() {
-      ReactDOM.render(<Container />, root);
-    }
-    const Container = () => ( 
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={count}>Click me</button>
-      </div>
-    );
     reRender();
   </script>
 </html>
@@ -32,4 +29,7 @@
 
 JS가 element를 생성하고 React JS가 그것을 HTML로 번역하는 것
 React JS는 업데이트 해야 하는 HTML을 업데이트 할 수 있음
+
+리액트의 좋은점은 UI에서 바뀐 부분만 업데이트 해줌
+
 -->
