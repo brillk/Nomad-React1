@@ -8,35 +8,21 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-
-    const Title = () => (
-      <h3 id="title" onMouseEnter={() => console.log("enter")}>
-        Hi??
-      </h3>
-    );
-    const Button = () => (
-      <button
-        style={{ backgroundCOlor: "tomato" }}
-        onClick={() => console.log("im clicked")}
-      >
-        Click me
-      </button>
-    );
-    const btn = React.createElement(
-      "button",
-      {
-        onClick: () => console.log("I'm clicked"),
-      },
-      "click me"
-    );
-    const Container = () => (
+    let counter = 0;
+    function count() {
+      counter = counter + 1;
+      reRender();
+    }
+    function reRender() {
+      ReactDOM.render(<Container />, root);
+    }
+    const Container = () => ( 
       <div>
-        <Title /> <Button />
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={count}>Click me</button>
       </div>
     );
-    //불러야 하는 함수의 첫 글자는 항상 대문자
-    //소문자는 html 태그
-    ReactDOM.render(<Container />, root);
+    reRender();
   </script>
 </html>
 
