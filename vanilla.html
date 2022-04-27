@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    const span = React.createElement("span", { id: "the" }, "wow?");
+    ReactDOM.render(span, root);
+  </script>
+</html>
+
+<!-- 바닐라JS는 HTML -> JS 순서
+리액트는 JS -> HTML 순서 -->
