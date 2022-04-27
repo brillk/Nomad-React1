@@ -12,7 +12,9 @@
     function Container() {
       const [counter, setCounter] = React.useState(0); //초기 값과 함수
       const onclick = () => {
-        setCounter(counter + 1);
+        //setCounter(counter + 1);
+        //state에 기반한 계산은 함수를 넣으면 된다
+        setCounter(current => current + 1);
       };
       return (
         <div>
