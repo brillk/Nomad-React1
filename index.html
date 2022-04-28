@@ -7,9 +7,11 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ apple }) {
+    function Btn({ apple, changeValue }) {
+      console.log(apple, "was Rendered");
       return (
         <button
+          onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -23,11 +25,20 @@
       ); //오 같은 버튼인데, 다른 텍스트를 줬다
     }
 
+    const MemorizedBtn = React.memo(Btn);
+
     function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn apple="Save Changes" /> {/* 이름은 내가 정할 수 있음  */}
-          <Btn apple="Continue" />
+          <MemorizedBtn apple={value} changeValue={changeValue} />
+          {/* 이름은 내가 정할 수 있음  
+            props에 뭘 넣든 그건 prop만 된다 eventListener가 되진 않음
+          */}
+          <MemorizedBtn apple="Continue" />
+          {/* 값이 바뀌지 않지만 렌더가 된다 
+          하지만 변경이 없는값을 렌더하고 싶진 않다 */}
         </div>
       );
     }
