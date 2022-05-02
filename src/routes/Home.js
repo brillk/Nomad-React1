@@ -4,7 +4,7 @@ import Movie from "../components/Movie";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  
+
   const getMovies = async () => {
     const response = await fetch(
       "https://yts.mx/api/v2/list_movies.json?minimum_rating=9.2&sort_by=year"
@@ -30,7 +30,7 @@ function Home() {
               key={movie.id} //key는map안에 component를 render할떄 사용
               coverImg={movie.medium_cover_image}
               title={movie.title}
-              runTime={movie.runtime}
+              runtime={movie.runtime}
               uploaded={movie.torrents[0].date_uploaded}
               genres={movie.genres}
             />
