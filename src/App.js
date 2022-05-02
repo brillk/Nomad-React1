@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie">
+        <Route path="/movie/:id">
           <Page />
         </Route>
         <Route path="/"> {/* 새로운 url을 쉽게 만들었다 */}
