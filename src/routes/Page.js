@@ -14,11 +14,12 @@ function Detail() {
   useEffect(() => {
     getMovie();
   }, [getMovie]); // useEffect 두번쨰 인자는 getMovie가 불릴때 새로운 페이지에 재생성된다
+  console.log(movie);
   return (
     <div>
       <img src={movie.medium_cover_image} />
       <h1>{movie.title_long}</h1>
-      <span> {movie.description_intro}</span>
+      <span> {movie.description_full}</span>
       <p></p>
     </div>
   );
