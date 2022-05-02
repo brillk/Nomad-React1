@@ -13,7 +13,7 @@ function Movie({ id, coverImg, title, genres, summary, year }) {
         <h3 className={styles.movie__year}>{year}</h3>
         <p>
           {summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}
-        </p>{" "}
+        </p>
         {/*235글자수 맞추기 */}
         <ul className={styles.movie__genres}>
           {genres.map(g => (
